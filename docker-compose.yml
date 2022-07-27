@@ -1,0 +1,46 @@
+version: '2.1'
+
+services:
+
+  postgres:
+    image: postgres
+    environment: 
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  api:
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+    # Import .env data to api environment
+    env_file: ./.env
+
+    environment: 
+      DB_HOST: 'database'
+      ENVIRONMENT: ${ENVIRONMENT}
+
+    depends_on:
+      - postgres
+    links:
+      - postgres:database
+
+    ports:
+      - "${API_LISTENING_PORT}:3000" 
+
+    restart: always
+
+    entrypoint: ./docker-entrypoint.sh
+
+    # Link the host src code to the container
+    volumes:
+      - ./src/:/home/workspace/api/src
+
+# Database volume
+volumes:
+  pgdata:

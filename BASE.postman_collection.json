@@ -1,0 +1,1005 @@
+{
+	"info": {
+		"_postman_id": "b327922b-77b5-4362-9ed8-44f4e0c597ce",
+		"name": "BASE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente General",
+			"item": [
+				{
+					"name": "Crear Cliente General",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_type_id\": 1,\n\t\"name\": \"Client General 2\",\n\t\"cuit\": \"2222\",\n\t\"phone\": \"2217585245\",\n\t\"address\": \"calle 7\",\n\t\"monthly_bill\": 1200,\n\t\"active_date\": 1551050569,\n\t\"admin\":{\n\t\t\"username\": \"username\",\n\t\t\"nombre\": \"userprueba1\",\n\t\t\"email\": \"test2@test.com\",\n\t\t\"state\": 1,\n\t\t\"position\": \"CEO\",\n\t\t\"password\": \"12345\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/clientesGeneral",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"clientesGeneral"
+							]
+						},
+						"description": "##### Crea un nuevo Cliente General\n\n`client_type_id` (int): id del tipo de cliente\n\n`name` (str): nombre del cliente\n\n`cuit` (str): cuit del cliente (único)\n\n`phone` (int): telefono del cliente\n\n`address` (str): direccion del cliente\n\n`monthly_bill` (int): factura mensual\n\n`active_date` (int): dia de activacion\n\t\n\"admin\":{\n\n\t`username` (str): nombre de usuario\n\t\n\t`nombre` (str): nombre del usuario\n\t\n\t`email` (str): email del usuario (único)\n\t\n\t`state` (int): estado del usuario\n\t\n\t`position` (str): cargo del usuario\n\t\n\t`password` (str): constraseña del usuario\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Clientes Generales",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/clientesGeneral",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"clientesGeneral"
+							]
+						},
+						"description": "##### Lista todos los Clientes Generales"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Permisos",
+					"item": [
+						{
+							"name": "Crear Permiso",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nombre_publico\": \"permiso sdf\",\n\t\"nombre_interno\": \"permiso sdf\",\n\t\"descripcion\": \"descripcion\",\n\t\"permisoId\": 1123\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos"
+									]
+								},
+								"description": "##### Crea un nuevo permiso\n\n`nombre_publico` (str): nombre publico del permiso\n\n`nombre_interno` (str): nombre interno del permiso (opcional)\n\n`descripcion` (str): descripcion del permiso (opcional)\n\n`permisoId` (int): id del permiso padre (opcional)"
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Permisos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos"
+									]
+								},
+								"description": "##### Lista todos los permisos"
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Permisos Activos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos/listarActivos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos",
+										"listarActivos"
+									]
+								},
+								"description": "##### Lista todos los permisos activos"
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Info Permiso",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos",
+										"1"
+									]
+								},
+								"description": "##### Lista info de un permiso\r\n\r\nRecibe por parametro el id del permiso"
+							},
+							"response": []
+						},
+						{
+							"name": "Modificar Permiso ",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nombre_publico\": \"permiso asd\",\n\t\"nombre_interno\": \"permiso 1\",\n\t\"descripcion\": \"descripcion\",\n\t\"permisoId\": 1\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos",
+										"1"
+									]
+								},
+								"description": "##### Modifica un permiso\n\nRecibe por parametro id del permiso\n\n`nombre_publico` (str): nombre publico del permiso \n\n`nombre_interno` (str): nombre interno del permiso (opcional)\n\n`descripcion` (str): descripcion del permiso (opcional)\n\n`permisoId` (int): id del permiso padre (opcional)"
+							},
+							"response": []
+						},
+						{
+							"name": "Deshabilitar Permiso",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"state\": 1\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/permisos/activate/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"permisos",
+										"activate",
+										"1"
+									]
+								},
+								"description": "##### Deshabilita un permiso\n\nRecibe por parametro id del permiso\n\n`state` (int): 1:habilitado, 0:deshabilitado"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"nombre\",\n    \"apellido\": \"apellido\",\n\t\"email\":\"test@test.com\",\n    \"password\":\"1234\",\n    \"dni\": \"3333\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios"
+							]
+						},
+						"description": "##### Crea un nuevo usuario asociado al cliente logueado\n\n`username` (str): nombre de usuario\n\n`nombre` (str): nombre del usuario\n\n`email` (str): email del usuario (único)\n\n`role_id` (int): id del rol del usuario\n\n`password` (str): contraseña del usuario\n\n`permisos`:[{\n\n    `id` (int): id del permiso\n    \n}]"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Roles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/roles",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"roles"
+							]
+						},
+						"description": "##### Lista todos los roles"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios"
+							]
+						},
+						"description": "##### Lista todos los usuarios asociados al cliente logueado"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Info Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"3"
+							]
+						},
+						"description": "##### Lista info de un usuario\n\nRecibe por parametro el id de usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuarios activos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/listarActivos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"listarActivos"
+							]
+						},
+						"description": "##### Lista todos los usuarios activos"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Permisos del Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/listarPermisos/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"listarPermisos",
+								"1"
+							]
+						},
+						"description": "##### Lista todos los permisos del usuario\r\n\r\nRecibe por parametro el id del usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"usuario4\",\n\t\"nombre\": \"nombre\",\n\t\"email\": \"test@test.com\",\n\t\"role_id\": 1,\n\t\"password\": \"integrah\",\n\t\"permisos\":[{\n\t\t\"id\": 3\n\t},\n\t{\n\t\t\"id\": 1\n\t},\n\t{\n\t\t\"id\": 7\n\t},\n\t{\n\t\t\"id\": 2\n\t}],\n\t\"modificarPermisos\": true\n\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"1"
+							]
+						},
+						"description": "##### Modifica un usuario asociado al cliente logueado\n\n`username` (str): nombre de usuario\n\n`nombre` (str): nombre del usuario\n\n`role_id` (int): id del rol del usuario\n\n`email` (str): email del usuario (único)\n\n`password` (str): contraseña del usuario (opcional)\n\n`permisos`:[{\n\n    `id` (int): id del permiso\n    \n}]\n\n`modificarPermisos` (boolean): indica si se modifican o no los permisos. true: los permisos que se indiquen serán los nuevos que tenga asociado el usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"integrah\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/editPassword/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"editPassword",
+								"3"
+							]
+						},
+						"description": "##### Modifica contrasenia un usuario asociado al cliente logueado\n\n`password` (str): contraseña del usuario (opcional)"
+					},
+					"response": []
+				},
+				{
+					"name": "Habilitar / Deshabilitar  Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"state\": 0\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/usuarios/activate/34",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"activate",
+								"34"
+							]
+						},
+						"description": "##### Activa/Desactiva un usuario\n\nRecibe por parametro el id del usuario\n\n`state` (int): estado (0: eliminado, 1: activo)\n\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\",jsonData.data.token);",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body includes token\", function(){",
+									"    pm.expect(pm.response.text()).to.include(\"token\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJuYW1lIjoiQWRtaW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE1NjQ2MjgzMjd9.Nz3_7w3T4B5H93Gl058cp5UNh7J0igMhtbedjcsa9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"test@test.com\",\n\t\"password\": \"integrah\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "##### Loguea y genera el token de autentificacion\n\n`email` (str): email del usuario que quiere loguearse\n\n`password` (str): contraseña del usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Recover user password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ber.pagola@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/auth/recover",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"recover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset user password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "R6Zwhtrj9tNLkGTRIEE6Fthg8ibzg1cw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reset_token\": \"65467360288b63861623d6786380534f429f47bc9658458a\",\n    \"password\": \"bernardo123\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/auth/reset",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mercadopago",
+			"item": [
+				{
+					"name": "Sandbox",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"site_id\":\"MLA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.mercadopago.com/users/test_user?access_token=TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771",
+							"protocol": "https",
+							"host": [
+								"api",
+								"mercadopago",
+								"com"
+							],
+							"path": [
+								"users",
+								"test_user"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar pago",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.mercadopago.com/v1/payments/search?access_token=TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771&sort=date_created&criteria=desc",
+							"protocol": "https",
+							"host": [
+								"api",
+								"mercadopago",
+								"com"
+							],
+							"path": [
+								"v1",
+								"payments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771"
+								},
+								{
+									"key": "sort",
+									"value": "date_created"
+								},
+								{
+									"key": "criteria",
+									"value": "desc"
+								},
+								{
+									"key": "external_reference",
+									"value": "\"ID_REF\"'",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar pago Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.mercadopago.com/v1/payments/28872009?access_token=TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771&sort=date_created&criteria=desc",
+							"protocol": "https",
+							"host": [
+								"api",
+								"mercadopago",
+								"com"
+							],
+							"path": [
+								"v1",
+								"payments",
+								"28872009"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771"
+								},
+								{
+									"key": "sort",
+									"value": "date_created"
+								},
+								{
+									"key": "criteria",
+									"value": "desc"
+								},
+								{
+									"key": "external_reference",
+									"value": "\"ID_REF\"'",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Prueba",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/mercadopago/prueba",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"mercadopago",
+								"prueba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Info Preferencias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.mercadopago.com/checkout/preferences/263117771-157b81f9-0333-4b33-a885-318bdb81ff75?access_token=TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771",
+							"protocol": "https",
+							"host": [
+								"api",
+								"mercadopago",
+								"com"
+							],
+							"path": [
+								"checkout",
+								"preferences",
+								"263117771-157b81f9-0333-4b33-a885-318bdb81ff75"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "TEST-4706151432589780-052209-be345995704289c6bb8973de23aade18-263117771"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
